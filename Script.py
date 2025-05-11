@@ -142,10 +142,24 @@ Nᴀᴍᴇ - {}"""
 ʏᴏᴜ ᴀʀᴇ ᴜꜱɪɴɢ ᴏɴᴇ ᴏꜰ ᴍʏ ᴏʟᴅ ᴍᴇꜱꜱᴀɢᴇꜱ, 
 ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ᴛʜᴇ ʀᴇQᴜᴇꜱᴛ ᴀɢᴀɪɴ."""
 
-    CUDNT_FND = """Oops BOSS! Yeh wali `{qurey}` premium cheez toh hamare Telegram ki dukaan mein OUT OF STOCK hai! 🛒❌\nLekin tension NOT! 🔧\nFull stock milta hai hamare asli adda pe\n<a href="https://www.mxmoder.com">www.mxmoder.com</a>\nWahin jao, download dabao, aur maja udao – bina kisi jhanjhat ke! 🚀😎\nTelegram chhodo... website kholo!"""
+    CUDNT_FND = """Oops BOSS! Yeh wali premium {} cheez toh hamare Telegram ki dukaan mein OUT OF STOCK hai! 🛒❌
 
-    I_CUDNT = """Oops BOSS! Yeh wali `{qurey}` premium cheez toh hamare Telegram ki dukaan mein OUT OF STOCK hai! 🛒❌\nLekin tension NOT! 🔧\nFull stock milta hai hamare asli adda pe\n<a href="https://www.mxmoder.com">www.mxmoder.com</a>\nWahin jao, download dabao, aur maja udao – bina kisi jhanjhat ke! 🚀😎\nTelegram chhodo... website kholo!"""
+Lekin tension NOT! 🔧
+Full stock milta hai hamare asli adda pe
+<a href="https://www.mxmoder.com">www.mxmoder.com</a>
 
+Wahin jao, download dabao, aur maze udao – bina kisi jhanjhat ke! 🚀😎
+Telegram chhodo... website kholo!"""
+
+    I_CUDNT = """<b>Oops BOSS! Yeh wali premium {} cheez toh hamare Telegram ki dukaan mein OUT OF STOCK hai! 🛒❌
+
+Lekin tension NOT! 🔧
+Full stock milta hai hamare asli adda pe
+<a href="https://www.mxmoder.com">www.mxmoder.com</a>
+
+Wahin jao, download dabao, aur maze udao – bina kisi jhanjhat ke! 🚀😎
+Telegram chhodo... website kholo!</b>"""
+    
     I_CUD_NT = """ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ {}.
 ᴘʟᴇᴀꜱᴇ ᴄʜᴇᴄᴋ ᴛʜᴇ ꜱᴘᴇʟʟɪɴɢ ᴏɴ ɢᴏᴏɢʟᴇ ᴏʀ ɪᴍᴅʙ..."""
 
