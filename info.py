@@ -29,7 +29,7 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 PICS = (environ.get('PICS', 'https://telegra.ph/file/864eb21067354a70fa921.jpg   https://telegra.ph/file/8c6bb023ad1b3dc3fe624.jpg https://telegra.ph/file/80af2f35d03ff9a337a1c.jpg https://telegra.ph/file/91df6ab78cdc8396c8924.jpg https://telegra.ph/file/43dcf738ea9ed1d112fad.jpg https://telegra.ph/file/4eb5d5abe091a8f9d4cdc.jpg https://telegra.ph/file/402377cd7412e798913c5.jpg https://telegra.ph/file/b6815decacf6b50e7a05d.jpg https://telegra.ph/file/d5d37affc3b99470d171b.jpg https://telegra.ph/file/f7da13792c5f9729fee28.jpg https://telegra.ph/file/7e5b7391f5045577c2078.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/dd3308067244a44d9ded1.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/mxmoder_video_download")
-SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/864eb21067354a70fa921.jpg https://telegra.ph/file/8c6bb023ad1b3dc3fe624.jpg https://telegra.ph/file/80af2f35d03ff9a337a1c.jpg https://telegra.ph/file/91df6ab78cdc8396c8924.jpg https://telegra.ph/file/43dcf738ea9ed1d112fad.jpg https://telegra.ph/file/4eb5d5abe091a8f9d4cdc.jpg https://telegra.ph/file/402377cd7412e798913c5.jpg https://telegra.ph/file/b6815decacf6b50e7a05d.jpg https://telegra.ph/file/d5d37affc3b99470d171b.jpg https://telegra.ph/file/f7da13792c5f9729fee28.jpg https://telegra.ph/file/7e5b7391f5045577c2078.jpg")
+SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/864eb21067354a70fa921.jpg")
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7732405661').split()]
