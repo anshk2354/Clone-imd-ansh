@@ -1978,7 +1978,7 @@ async def auto_filter(client, msg, spoll=False):
             return
         if len(message.text) < 100:
             search = message.text
-            m=await message.reply_text("✅ **Aapka message send ho gaya hai.\nPlease wait... Kuch hi der mein aap ko Mod APK mil jaega.\n\nYour message has been sent.\nYou will receive the mod app in a few minutes**",
+            m=await message.reply_text("✅ **Aapka message send ho gaya hai.Please wait...\nKuch hi der mein aap ko {} Mod APK mil jaega.\n\nYour message has been sent.\nYou will receive the {} mod app in a few minutes**",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f'Seaching for {search} 🔎 mod apk', url=f"https://t.me/mxmoder")]]) 
             )
             await asyncio.sleep(10)
@@ -2010,7 +2010,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-        m=await message.reply_text("✅ **Aapka message send ho gaya hai.\nPlease wait... Kuch hi der mein aap ko Mod APK mil jaega.\n\nYour message has been sent.\nYou will receive the mod app in a few minutes**",
+        m=await message.reply_text("✅ **Aapka message send ho gaya hai.Please wait...\nKuch hi der mein aap ko {} Mod APK mil jaega.\n\nYour message has been sent.\nYou will receive the {} mod app in a few minutes**",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f'Seaching for {search} 🔎', url=f"https://t.me/mxmoder")]]) 
             )
         await asyncio.sleep(10)
