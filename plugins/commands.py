@@ -14,7 +14,7 @@ from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
 from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, PREMIUM_USER
-from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial
+from utils import GET_FILE_HANDLER, get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial
 from database.connections_mdb import active_connection
 # from plugins.pm_filter import ENABLE_SHORTLINK
 import re, asyncio, os, sys
@@ -237,11 +237,18 @@ async def start(client, message):
             )
         is_valid = await check_token(client, userid, token)
         if is_valid == True:
-            await message.reply_text(
+            iron_id = GET_FILE_HANDLER[f'{userid}-{token}']
+                 
+            btn = [
+                [InlineKeyboardButton('GET FILE', callback_data = iron_id)]
+            ]
+            await message.reply(
                 text=f"<b>Hey {message.from_user.mention}, You are successfully verified !\nNow you have unlimited access for all premium Mod APK for 24 hours.</b>",
-                 protect_content=True if PROTECT_CONTENT else False
+                reply_markup=InlineKeyboardMarkup(btn) if btn else None,
+                protect_content=True if PROTECT_CONTENT else False
             )
             await verify_user(client, userid, token)
+            del GET_FILE_HANDLER[f'{userid}-{token}']
         else:
             return await message.reply_text(
                 text="<b>Invalid link or Expired link !</b>",
@@ -249,6 +256,7 @@ async def start(client, message):
             )
     if data.startswith("sendfiles"):
         chat_id = int("-" + file_id.split("-")[1])
+        print(f"{chat_id}\n{file_id}")
         userid = message.from_user.id if message.from_user else None
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=allfiles_{file_id}")
         k = await client.send_message(chat_id=message.from_user.id,text=f"<b>Get All Files in a Single Click!!!\n\n📂 ʟɪɴᴋ ➠ : {g}\n\n<i>Note: This message is deleted in 5 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(
@@ -308,7 +316,7 @@ async def start(client, message):
                 f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))}"
             if not await check_verification(client, message.from_user.id) and VERIFY == True:
                 btn = [[
-                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")),
+                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", f"{data}")),
                     InlineKeyboardButton("⚡ ʜᴏᴡ ᴛᴏ ᴠᴇʀɪғɪᴇᴅ ⚡",url='https://t.me/mxmoder_video_download/6')
                    ]]
                 await message.reply_text(
@@ -373,7 +381,7 @@ async def start(client, message):
         try:
             if not await check_verification(client, message.from_user.id) and VERIFY == True:
                 btn = [[
-                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")),
+                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", f"{pre}#{file_id}")),
                     InlineKeyboardButton("⚡ ʜᴏᴡ ᴛᴏ ᴠᴇʀɪғɪᴇᴅ ⚡",url='https://t.me/mxmoder_video_download/6')
                    ]]
                 await message.reply_text(
@@ -433,7 +441,7 @@ async def start(client, message):
         f_caption = f"@mxmoder  {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))}"
     if not await check_verification(client, message.from_user.id) and VERIFY == True:
         btn = [[
-            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")),
+            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", f"{pre}#{file_id}")),
             InlineKeyboardButton("⚡ ʜᴏᴡ ᴛᴏ ᴠᴇʀɪғɪᴇᴅ ⚡",url='https://t.me/mxmoder_video_download/6')
          ]]
         await message.reply_text(

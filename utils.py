@@ -38,6 +38,7 @@ imdb = Cinemagoer()
 TOKENS = {}
 VERIFIED = {}
 BANNED = {}
+GET_FILE_HANDLER = {}
 SECOND_SHORTENER = {}
 SMART_OPEN = '“'
 SMART_CLOSE = '”'
@@ -596,7 +597,7 @@ async def check_token(bot, userid, token):
     else:
         return False
 
-async def get_token(bot, userid, link):
+async def get_token(bot, userid, link, file_id):
     user = await bot.get_users(userid)
     if not await db.is_user_exist(user.id):
         await db.add_user(user.id, user.first_name)
@@ -605,6 +606,7 @@ async def get_token(bot, userid, link):
     TOKENS[user.id] = {token: False}
     link = f"{link}verify-{user.id}-{token}"
     shortened_verify_url = await get_verify_shorted_link(link)
+    GET_FILE_HANDLER[f'{user.id}-{token}'] = file_id
     return str(shortened_verify_url)
 
 async def verify_user(bot, userid, token):
